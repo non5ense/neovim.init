@@ -1,18 +1,15 @@
 " Common Settings
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set expandtab
 set number
 set ruler
 
 " Plugins 
 call plug#begin('~/.local/share/nvim/plugged')
-	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'zchee/deoplete-go', { 'do': 'make'}
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-	Plug 'scrooloose/nerdcommenter'
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'scrooloose/nerdcommenter'
     Plug 'itchyny/lightline.vim'
 call plug#end()
 
@@ -42,3 +39,5 @@ colorscheme iceberg
 "Aliases
 nnoremap <Leader>m :set mouse+=a<CR>
 nnoremap <Leader>M :set mouse-=a<CR>
+nnoremap <Leader>t :botright new \| term<CR>
+tnoremap <Esc> <C-\><C-n>
