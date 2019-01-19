@@ -11,6 +11,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'scrooloose/nerdcommenter'
     Plug 'itchyny/lightline.vim'
+    Plug 'emacs-helm/helm'
+    Plug 'vim-scripts/grep.vim'
 call plug#end()
 
 " Autocomplete Settings
@@ -26,7 +28,7 @@ let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>n :NERDTreeToggle<cr>
 
 "lightline config
 let g:lightline = {
@@ -37,7 +39,8 @@ let g:lightline = {
 colorscheme iceberg 
 
 "Aliases
-nnoremap <Leader>m :set mouse+=a<CR>
-nnoremap <Leader>M :set mouse-=a<CR>
-nnoremap <Leader>t :botright new \| term<CR>
+nnoremap <leader>m :set mouse+=a<cr>
+nnoremap <leader>M :set mouse-=a<cr>
+nnoremap <leader>t :botright new \| term<cr>
+nnoremap <leader>n :NERDTreeToggle<cr>
 tnoremap <Esc> <C-\><C-n>
