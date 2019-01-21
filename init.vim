@@ -1,7 +1,12 @@
 " Common Settings
+syntax on
 filetype plugin indent on
 set number
 set ruler
+set nohlsearch
+
+" Tabs for different files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Plugins 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -13,14 +18,22 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'emacs-helm/helm'
     Plug 'vim-scripts/grep.vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'Shougo/echodoc.vim'
 call plug#end()
+
+"vim-go settings
+let g:go_fmt_autosave = 1
 
 " Autocomplete Settings
 set completeopt+=noinsert
 set completeopt+=noselect
+set noshowmode
+set completeopt-=preview
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd CompleteDone * silent! pclose!
 
 " NERDTree settings
