@@ -4,6 +4,7 @@ filetype plugin indent on
 set number
 set ruler
 set nohlsearch
+set completeopt=longest,menuone
 
 " Tabs for different files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -33,7 +34,11 @@ set completeopt-=preview
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 autocmd CompleteDone * silent! pclose!
 
 " NERDTree settings
